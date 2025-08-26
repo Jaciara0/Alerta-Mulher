@@ -1,0 +1,58 @@
+{
+  "name": "FoodExpress - Delivery Rápido",
+  "short_name": "FoodExpress",
+  "description": "Aplicativo de delivery de comida rápido e confiável",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF6B35",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' fill='%23FF6B35'%3E%3Cpath d='M144 48h32c6.4 0 12.3-5.1 13-11.7L192 4h-40V8h-15.8v32.4H96.2l2.4 18.7c13.7 3.8 26.5 10.6 34.2 18.1 11.5 11.4 19.4 23.1 19.4 42.3V192h-8V119.5c0-15.4-6.3-24.8-15.5-33.8C120.2 78.2 111.7 73.4 103.5 72L108 60H76l-6.1 16H8V192h136z'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FF6B35'%3E%3Cpath d='M384 128h85.3c17.1 0 32.8-13.6 34.7-30.9L512 32H384v-16h-42.1v86.4H256.5l6.4 49.8c36.5 10.1 70.8 28.3 91.2 48.3 30.7 30.4 51.8 61.6 51.8 112.8V512h-21.3V312.4c0-41.1-16.8-66.1-41.3-90.1-24.3-23.8-41.1-36.6-57.4-39.7L296 160H202.7l-16.3 42.7H21.3V512H384z'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "lifestyle"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Pedido Rápido",
+      "short_name": "Pedido",
+      "url": "/?shortcut=quick-order",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B35'%3E%3Cpath d='M7 4V2a1 1 0 0 1 2 0v2h6V2a1 1 0 0 1 2 0v2h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1zM6 6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H6z'/%3E%3C/svg%3E",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "tel",
+      "url": "/?call=%s"
+    }
+  ],
+  "related_applications": [],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 640' fill='%23f8f9fa'%3E%3Crect width='320' height='640' fill='%23f8f9fa'/%3E%3Crect x='0' y='0' width='320' height='100' fill='%23FF6B35'/%3E%3Ctext x='160' y='55' text-anchor='middle' fill='white' font-size='20'%3EFoodExpress%3C/text%3E%3C/svg%3E",
+      "sizes": "320x640",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Tela inicial do FoodExpress"
+    }
+  ]
+}

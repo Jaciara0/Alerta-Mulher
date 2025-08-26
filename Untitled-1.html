@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Delivery Rápido</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B35'%3E%3Cpath d='M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 22.99c0 .54.45 .99 .99 .99H15c.54 0 .99-.45.99-.99v-8.05c0-2.4-.99-3.87-2.43-5.29C12.52 8.63 11.06 7.92 9.5 7.5L10.5 5H9.5l-.76 2H1v15.99z'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header with emergency button disguised as menu -->
+        <header class="app-header">
+            <div class="header-content">
+                <button id="emergency-btn" class="menu-btn" title="Menu">
+                    <i data-feather="menu"></i>
+                </button>
+                <h1 class="app-title">FoodExpress</h1>
+                <button class="cart-btn">
+                    <i data-feather="shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+            </div>
+            <div class="location-bar">
+                <i data-feather="map-pin"></i>
+                <span id="location-text">Localizando...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Screen -->
+            <div id="home-screen" class="screen active">
+                <div class="search-bar">
+                    <i data-feather="search"></i>
+                    <input type="text" placeholder="Buscar restaurantes e pratos">
+                </div>
+
+                <div class="categories">
+                    <h2>Categorias</h2>
+                    <div class="category-grid">
+                        <div class="category-item" data-category="fast-food">
+                            <div class="category-icon">🍔</div>
+                            <span>Fast Food</span>
+                        </div>
+                        <div class="category-item" data-category="pizza">
+                            <div class="category-icon">🍕</div>
+                            <span>Pizza</span>
+                        </div>
+                        <div class="category-item" data-category="desserts">
+                            <div class="category-icon">🍨</div>
+                            <span>Sobremesas</span>
+                        </div>
+                        <div class="category-item" data-category="beverages">
+                            <div class="category-icon">🥤</div>
+                            <span>Bebidas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurants">
+                    <h2>Restaurantes Próximos</h2>
+                    <div class="restaurant-list">
+                        <div class="restaurant-card">
+                            <div class="restaurant-image">🍔</div>
+                            <div class="restaurant-info">
+                                <h3>Burger Palace</h3>
+                                <p>Hambúrgueres artesanais</p>
+                                <div class="restaurant-meta">
+                                    <span class="rating">⭐ 4.5</span>
+                                    <span class="delivery-time">25-35 min</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="restaurant-card">
+                            <div class="restaurant-image">🍕</div>
+                            <div class="restaurant-info">
+                                <h3>Pizza Express</h3>
+                                <p>Pizzas tradicionais e especiais</p>
+                                <div class="restaurant-meta">
+                                    <span class="rating">⭐ 4.3</span>
+                                    <span class="delivery-time">30-40 min</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="restaurant-card">
+                            <div class="restaurant-image">🍨</div>
+                            <div class="restaurant-info">
+                                <h3>Gelato & Cia</h3>
+                                <p>Sorvetes e sobremesas geladas</p>
+                                <div class="restaurant-meta">
+                                    <span class="rating">⭐ 4.7</span>
+                                    <span class="delivery-time">15-25 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Screen (Hidden Emergency Interface) -->
+            <div id="menu-screen" class="screen">
+                <div class="menu-header">
+                    <button id="back-btn" class="back-btn">
+                        <i data-feather="arrow-left"></i>
+                    </button>
+                    <h2>Cardápio Especial</h2>
+                </div>
+
+                <div class="emergency-notice">
+                    <p><strong>Entrega Imediata Disponível</strong></p>
+                    <p>Selecione o tipo de pedido para assistência urgente</p>
+                </div>
+
+                <div class="menu-categories">
+                    <!-- Each menu item represents a type of emergency/violence -->
+                    <div class="menu-category">
+                        <h3>🍔 Hambúrgueres Especiais</h3>
+                        <div class="menu-item" data-emergency="domestic-violence">
+                            <div class="item-info">
+                                <h4>Big Burger Familiar</h4>
+                                <p>Situações relacionadas ao ambiente doméstico</p>
+                                <span class="price">R$ 25,00</span>
+                            </div>
+                            <button class="add-btn">Adicionar</button>
+                        </div>
+
+                        <div class="menu-item" data-emergency="public-harassment">
+                            <div class="item-info">
+                                <h4>Street Burger</h4>
+                                <p>Situações em locais públicos</p>
+                                <span class="price">R$ 22,00</span>
+                            </div>
+                            <button class="add-btn">Adicionar</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3>🍕 Pizzas Urgentes</h3>
+                        <div class="menu-item" data-emergency="workplace-harassment">
+                            <div class="item-info">
+                                <h4>Pizza Corporativa</h4>
+                                <p>Situações no ambiente de trabalho</p>
+                                <span class="price">R$ 35,00</span>
+                            </div>
+                            <button class="add-btn">Adicionar</button>
+                        </div>
+
+                        <div class="menu-item" data-emergency="cyber-harassment">
+                            <div class="item-info">
+                                <h4>Pizza Digital</h4>
+                                <p>Situações envolvendo meios digitais</p>
+                                <span class="price">R$ 28,00</span>
+                            </div>
+                            <button class="add-btn">Adicionar</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3>🍨 Sobremesas de Emergência</h3>
+                        <div class="menu-item" data-emergency="immediate-danger">
+                            <div class="item-info">
+                                <h4>Sorvete Express</h4>
+                                <p>Situação de perigo imediato</p>
+                                <span class="price">R$ 15,00</span>
+                            </div>
+                            <button class="add-btn emergency-item">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart/Report Screen -->
+            <div id="cart-screen" class="screen">
+                <div class="menu-header">
+                    <button id="cart-back-btn" class="back-btn">
+                        <i data-feather="arrow-left"></i>
+                    </button>
+                    <h2>Seu Pedido</h2>
+                </div>
+
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be populated here -->
+                </div>
+
+                <div class="order-details">
+                    <textarea id="order-notes" placeholder="Observações do pedido (descreva detalhes importantes...)"></textarea>
+                    
+                    <div class="contact-selection">
+                        <h3>Contatos para Entrega</h3>
+                        <div id="emergency-contacts">
+                            <!-- Emergency contacts will be populated here -->
+                        </div>
+                        <button id="add-contact-btn" class="secondary-btn">
+                            <i data-feather="plus"></i>
+                            Adicionar Contato
+                        </button>
+                    </div>
+
+                    <div class="location-info">
+                        <h3>Local de Entrega</h3>
+                        <p id="delivery-location">Buscando localização...</p>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="share-location" checked>
+                            Compartilhar localização em tempo real
+                        </label>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <button id="place-order-btn" class="primary-btn">
+                        <i data-feather="send"></i>
+                        Finalizar Pedido - Entrega Imediata
+                    </button>
+                    <button id="call-180-btn" class="emergency-btn">
+                        <i data-feather="phone"></i>
+                        Ligar para Central 180
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contact Management Screen -->
+            <div id="contacts-screen" class="screen">
+                <div class="menu-header">
+                    <button id="contacts-back-btn" class="back-btn">
+                        <i data-feather="arrow-left"></i>
+                    </button>
+                    <h2>Contatos de Confiança</h2>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Nome</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Telefone</label>
+                        <input type="tel" id="contact-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-relation">Relação</label>
+                        <select id="contact-relation">
+                            <option value="family">Família</option>
+                            <option value="friend">Amigo(a)</option>
+                            <option value="colleague">Colega</option>
+                            <option value="neighbor">Vizinho(a)</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="primary-btn">
+                        <i data-feather="save"></i>
+                        Salvar Contato
+                    </button>
+                </form>
+
+                <div id="saved-contacts" class="saved-contacts">
+                    <h3>Contatos Salvos</h3>
+                    <div id="contacts-list">
+                        <!-- Saved contacts will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-screen="home">
+                <i data-feather="home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-btn" data-screen="orders">
+                <i data-feather="clock"></i>
+                <span>Pedidos</span>
+            </button>
+            <button class="nav-btn" data-screen="favorites">
+                <i data-feather="heart"></i>
+                <span>Favoritos</span>
+            </button>
+            <button class="nav-btn" data-screen="profile">
+                <i data-feather="user"></i>
+                <span>Perfil</span>
+            </button>
+        </nav>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <h3>Confirmar Pedido de Emergência</h3>
+                <p>Seu pedido será enviado imediatamente para os contatos selecionados. Continuar?</p>
+                <div class="modal-actions">
+                    <button id="cancel-order" class="secondary-btn">Cancelar</button>
+                    <button id="confirm-order" class="primary-btn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal">
+            <div class="modal-content">
+                <div class="success-icon">✅</div>
+                <h3>Pedido Confirmado!</h3>
+                <p>Seus contatos foram notificados e sua localização foi compartilhada.</p>
+                <button id="close-success" class="primary-btn">OK</button>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p>Processando pedido...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
